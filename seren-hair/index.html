@@ -302,122 +302,87 @@ const preguntas = [
 
 // FRASES para construir la reseña
 const frases = {
-  // Pregunta 1 — el antes
-  1: {
-    "Llevaba mucho tiempo sin hacerme nada y ya lo necesitaba": "Llevaba mucho tiempo sin pasarme por la peluquería y ya era hora.",
-    "El pelo estaba muy dañado, seco y sin vida": "Tenía el pelo bastante dañado, seco y sin vida.",
-    "Quería un cambio pero no sabía bien qué hacerme": "Quería un cambio pero no tenía muy claro qué hacerme exactamente.",
-    "No me sentía bien con mi aspecto y necesitaba algo diferente": "Llevaba tiempo sin sentirme bien con mi pelo y necesitaba hacer algo al respecto.",
-    "Venía a tratarme el pelo, lo tenía muy castigado": "Venía a tratarme el pelo, lo tenía muy castigado y lo notaba."
-  },
-  // Pregunta 2 — experiencias previas
+  // Pregunta 2 — experiencias previas (el antes)
   2: {
-    "Sí, en otros sitios no me escucharon bien": "En otros salones nunca me sentí del todo escuchada.",
-    "Sí, el resultado nunca era lo que yo quería": "Otras veces el resultado no era lo que yo buscaba.",
-    "No especialmente, pero tenía dudas de si me entenderían": "Tenía mis dudas de si me iban a entender bien.",
+    "Sí, en otros sitios no me escucharon bien": "Había ido a otros sitios donde nunca me sentí del todo escuchada, y eso con el tiempo te cansa.",
+    "Sí, el resultado nunca era lo que yo quería": "Había probado en otros sitios pero el resultado nunca terminaba de ser lo que yo tenía en la cabeza.",
+    "No especialmente, pero tenía dudas de si me entenderían": "Tenía mis dudas de si me iban a entender — a veces es difícil explicar lo que una quiere.",
     "No, era mi primera vez buscando algo así": "",
-    "Llevaba tiempo sin ir a ningún sitio por eso mismo": "Llevaba tiempo sin ir a ningún sitio precisamente por eso."
+    "Llevaba tiempo sin ir a ningún sitio por eso mismo": "Llevaba tiempo sin ir a ningún sitio precisamente por eso, porque no encontraba un lugar que de verdad me convenciera."
   },
-  // Pregunta 3 — qué notó diferente
+  // Pregunta 3 — qué notó diferente (el recorrido)
   3: {
-    "Me escucharon de verdad, sin ir con prisas": "Desde el primer momento me escucharon de verdad, sin prisas.",
-    "Desde el principio sentí que entendían lo que quería": "Desde el principio tuve la sensación de que entendían exactamente lo que quería.",
-    "El ambiente era tranquilo y me sentí a gusto enseguida": "El ambiente era muy tranquilo y me sentí a gusto desde que entré.",
-    "Me explicaron todo antes de hacer nada, eso me dio confianza": "Me explicaron lo que iban a hacer antes de empezar, y eso me dio mucha confianza.",
-    "Me trataron con mucha amabilidad y sin ninguna presión": "El trato fue muy amable y en ningún momento sentí presión."
+    "Me escucharon de verdad, sin ir con prisas": "Pero en Seren Hair fue diferente desde el primer momento — me escucharon sin prisas, con calma, como si fuera la única clienta.",
+    "Desde el principio sentí que entendían lo que quería": "Pero aquí, desde el primer momento, sentí que entendían exactamente lo que quería sin que tuviera que explicarlo mil veces.",
+    "El ambiente era tranquilo y me sentí a gusto enseguida": "Nada más entrar noté algo diferente — el ambiente era tranquilo, cuidado, y me sentí a gusto enseguida.",
+    "Me explicaron todo antes de hacer nada, eso me dio confianza": "Lo que más me sorprendió fue que me explicaron todo antes de empezar. Ese detalle me dio mucha confianza.",
+    "Me trataron con mucha amabilidad y sin ninguna presión": "El trato fue completamente diferente — amable, cercano, sin ninguna presión en ningún momento."
   },
-  // Pregunta 5 — momento favorito
+  // Pregunta 5 — momento favorito (el recorrido)
   5: {
-    "El diagnóstico inicial, que se tomaron su tiempo conmigo": "Lo que más me gustó fue el diagnóstico inicial, que se tomaron su tiempo conmigo.",
-    "El momento en que vi cómo iba quedando el resultado": "Ver cómo iba quedando el resultado durante el proceso fue muy especial.",
-    "El trato durante todo el servicio, sin prisa y con detalle": "El trato durante todo el servicio, sin prisa y cuidando cada detalle.",
-    "La explicación de los productos y cómo cuidar el pelo en casa": "Me explicaron qué productos usar en casa, eso lo valoro mucho.",
-    "El resultado final al verme en el espejo": "El momento de verme al espejo al final."
+    "El diagnóstico inicial, que se tomaron su tiempo conmigo": "Me tomaron su tiempo para el diagnóstico inicial, sin prisa, y eso se agradece muchísimo.",
+    "El momento en que vi cómo iba quedando el resultado": "Hubo un momento durante el proceso en que vi cómo iba quedando y supe que iba a ser especial.",
+    "El trato durante todo el servicio, sin prisa y con detalle": "Durante todo el servicio el trato fue impecable — sin prisas, cuidando cada detalle, pendientes de mí en todo momento.",
+    "La explicación de los productos y cómo cuidar el pelo en casa": "Al final me explicaron cómo cuidar el pelo en casa y qué productos usar. Eso lo valoro mucho porque nadie suele hacerlo.",
+    "El resultado final al verme en el espejo": "Y luego llegó el momento de verme al espejo."
   },
-  // Pregunta 6 — cómo se siente
+  // Pregunta 6 — cómo se siente (el ahora)
   6: {
-    "Muy bien, es exactamente lo que quería": "El resultado es exactamente lo que quería.",
-    "Me he sentido renovada, como cuando te cuidas de verdad": "Salí sintiéndome renovada, como cuando te cuidas de verdad.",
-    "Contenta y con más confianza en mí misma": "Salí contenta y con más confianza en mí misma.",
-    "Aliviada, porque el pelo estaba necesitando esto": "Me sentí aliviada, el pelo lo necesitaba y se nota.",
-    "Sorprendida para bien, ha superado mis expectativas": "Ha superado mis expectativas, la verdad."
+    "Muy bien, es exactamente lo que quería": "El resultado es exactamente lo que quería — no más, no menos.",
+    "Me he sentido renovada, como cuando te cuidas de verdad": "Salí sintiéndome renovada de verdad, de esa manera que ocurre cuando por fin te cuidas como mereces.",
+    "Contenta y con más confianza en mí misma": "Salí contenta y con una confianza en mí misma que hacía tiempo que no sentía.",
+    "Aliviada, porque el pelo estaba necesitando esto": "Salí aliviada — el pelo lo necesitaba, y ahora se nota.",
+    "Sorprendida para bien, ha superado mis expectativas": "La verdad es que ha superado lo que esperaba, y eso no pasa muy a menudo."
   },
-  // Pregunta 9 — recomendación
+  // Pregunta 9 — recomendación (cierre)
   9: {
-    "Que no lo piense más y que venga, no se va a arrepentir": "A quien esté pensando en venir le digo que no lo piense más, no se va a arrepentir.",
-    "Que aquí te escuchan de verdad y eso marca la diferencia": "Aquí te escuchan de verdad, y eso marca la diferencia.",
+    "Que no lo piense más y que venga, no se va a arrepentir": "Si estás pensando en venir, no le des más vueltas — no te vas a arrepentir.",
+    "Que aquí te escuchan de verdad y eso marca la diferencia": "Lo que te puedo decir es que aquí te escuchan de verdad, y eso marca una diferencia enorme.",
     "Que merece la pena tratarse el pelo bien y este es el sitio": "Merece la pena tratarse el pelo bien, y este es el sitio para hacerlo.",
-    "Que si llevas tiempo sin sentirte bien con tu pelo, esto es lo que necesitas": "Si llevas tiempo sin sentirte bien con tu pelo, esto es lo que necesitas.",
-    "Que el resultado habla solo, solo hay que animarse a venir": "El resultado habla solo. Solo hay que animarse a venir."
+    "Que si llevas tiempo sin sentirte bien con tu pelo, esto es lo que necesitas": "Si llevas tiempo sin sentirte bien con tu pelo, esto es exactamente lo que necesitas.",
+    "Que el resultado habla solo, solo hay que animarse a venir": "El resultado habla solo. Solo hay que animarse a dar el paso."
   }
 };
 
 function construirResena(r) {
   let partes = [];
 
-  // ANTES — paso 1 libre
+  // ANTES — paso 1 libre (situación inicial)
   if (r[1] && r[1].trim()) {
     let p1 = r[1].trim();
     if (!p1.endsWith('.')) p1 += '.';
     partes.push(p1.charAt(0).toUpperCase() + p1.slice(1));
   }
 
-  // Experiencia previa — paso 2
+  // Experiencia previa — paso 2 (conecta con el antes)
   let p2 = frases[2][r[2]] || "";
   if (p2) partes.push(p2);
 
-  // Qué notó diferente — paso 3 (multi)
-  if (Array.isArray(r[3]) && r[3].length > 0) {
-    const p3parts = r[3].map(op => frases[3][op]).filter(Boolean);
-    if (p3parts.length === 1) {
-      partes.push(p3parts[0]);
-    } else if (p3parts.length === 2) {
-      // Quitar punto del primero y unir con "Además,"
-      const a = p3parts[0].replace(/\.$/, '');
-      partes.push(a + '. Además, ' + p3parts[1].charAt(0).toLowerCase() + p3parts[1].slice(1));
-    } else if (p3parts.length >= 3) {
-      const a = p3parts[0].replace(/\.$/, '');
-      const b = p3parts[1].replace(/\.$/, '');
-      partes.push(a + '. Además, ' + b.charAt(0).toLowerCase() + b.slice(1) + ' Y también: ' + p3parts[2].charAt(0).toLowerCase() + p3parts[2].slice(1));
-    }
-  } else {
-    let p3 = frases[3][r[3]] || "";
-    if (p3) partes.push(p3);
-  }
+  // Qué notó diferente — paso 3 (el giro, el recorrido empieza)
+  let p3 = frases[3][r[3]] || "";
+  if (p3) partes.push(p3);
 
-  // Deseo — paso 4 libre
+  // Deseo — paso 4 libre (qué quería conseguir)
   if (r[4] && r[4].trim()) {
     let p4 = r[4].trim();
     if (!p4.endsWith('.')) p4 += '.';
-    partes.push(p4.charAt(0).toUpperCase() + p4.slice(1));
+    partes.push("Lo que yo quería era " + p4.charAt(0).toLowerCase() + p4.slice(1));
   }
 
-  // Momento favorito — paso 5 (multi)
-  if (Array.isArray(r[5]) && r[5].length > 0) {
-    const p5parts = r[5].map(op => frases[5][op]).filter(Boolean);
-    if (p5parts.length === 1) {
-      partes.push(p5parts[0]);
-    } else if (p5parts.length === 2) {
-      const a = p5parts[0].replace(/\.$/, '');
-      partes.push(a + '. También me quedé con ' + p5parts[1].charAt(0).toLowerCase() + p5parts[1].slice(1));
-    } else if (p5parts.length >= 3) {
-      const a = p5parts[0].replace(/\.$/, '');
-      const b = p5parts[1].replace(/\.$/, '');
-      partes.push(a + ', ' + b.charAt(0).toLowerCase() + b.slice(1) + ' y, sobre todo, ' + p5parts[2].charAt(0).toLowerCase() + p5parts[2].slice(1));
-    }
-  } else {
-    let p5 = frases[5][r[5]] || "";
-    if (p5) partes.push(p5);
-  }
+  // Momento favorito — paso 5
+  let p5 = frases[5][r[5]] || "";
+  if (p5) partes.push(p5);
 
-  // Cómo se siente — paso 6 libre
+  // Cómo se siente — paso 6 libre (el ahora, la transformación)
   if (r[6] && r[6].trim()) {
     let p6 = r[6].trim();
     if (!p6.endsWith('.')) p6 += '.';
     partes.push(p6.charAt(0).toUpperCase() + p6.slice(1));
+  } else {
+    // fallback frases p6
   }
 
-  // Resultado — paso 7 libre
+  // Resultado — paso 7 libre (lo que más le gustó)
   if (r[7] && r[7].trim()) {
     let res = r[7].trim();
     if (!res.endsWith('.')) res += '.';
@@ -429,6 +394,10 @@ function construirResena(r) {
     if (r[8] >= 9) partes.push("Le doy un " + r[8] + " sobre 10, sin dudarlo.");
     else partes.push("Le pondría un " + r[8] + " sobre 10.");
   }
+
+  // Recomendación — paso 9 (cierre)
+  let p9 = frases[9][r[9]] || "";
+  if (p9) partes.push(p9);
 
   return partes.join(" ");
 }
