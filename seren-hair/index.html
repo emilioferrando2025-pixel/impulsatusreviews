@@ -355,11 +355,23 @@ function construirResena(r) {
   }
 
   // Experiencia previa — paso 2 (conecta con el antes)
+  const tieneExperienciaNegativa = r[2] && r[2] !== "No, era mi primera vez buscando algo así";
   let p2 = frases[2][r[2]] || "";
   if (p2) partes.push(p2);
 
-  // Qué notó diferente — paso 3 (el giro, el recorrido empieza)
-  let p3 = frases[3][r[3]] || "";
+  // Qué notó diferente — paso 3
+  // Si hay experiencia negativa previa usamos el conector "Pero en Seren Hair..."
+  // Si no, versión directa sin contraste
+  const frases3Directo = {
+    "Me escucharon de verdad, sin ir con prisas": "En Seren Hair me escucharon sin prisas, con calma, como si tuvieran todo el tiempo del mundo para mí.",
+    "Desde el principio sentí que entendían lo que quería": "Desde el primer momento sentí que entendían exactamente lo que quería sin que tuviera que explicarlo mil veces.",
+    "El ambiente era tranquilo y me sentí a gusto enseguida": "Nada más entrar noté algo especial — el ambiente era cuidado, tranquilo, y me sentí a gusto desde el primer segundo.",
+    "Me explicaron todo antes de hacer nada, eso me dio confianza": "Lo que más me sorprendió fue que me explicaron todo antes de empezar. Ese detalle me dio una confianza que pocas veces he sentido en una peluquería.",
+    "Me trataron con mucha amabilidad y sin ninguna presión": "El trato fue muy amable, cercano, sin ningún tipo de presión en ningún momento."
+  };
+  let p3 = tieneExperienciaNegativa
+    ? (frases[3][r[3]] || "")
+    : (frases3Directo[r[3]] || "");
   if (p3) partes.push(p3);
 
   // Deseo — paso 4 libre (qué quería conseguir)
