@@ -176,6 +176,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem
 .price-btn{width:100%;background:var(--cta);color:var(--white);padding:1.1rem;border-radius:50px;font-size:1rem;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s,transform 0.15s;letter-spacing:0.2px}
 .price-btn:hover{background:var(--cta-hover);transform:translateY(-1px)}
 .price-footer-note{text-align:center;font-size:0.74rem;color:var(--ink3);margin-top:1rem}
+.stripe-notice{background:var(--cream2);border-radius:8px;padding:0.8rem 1rem;margin-bottom:1rem;font-size:0.8rem;color:var(--ink2);line-height:1.55;text-align:center}
+.stripe-notice strong{color:var(--cta);font-weight:700}
 
 /* CIERRE */
 .cierre{background:var(--dark2);padding:8rem 3rem;text-align:center}
@@ -228,9 +230,29 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
 .sticky-bar .btn-cta{font-size:0.88rem;padding:0.7rem 1.6rem;white-space:nowrap;flex-shrink:0}
 .sticky-expired{font-size:0.78rem;color:rgba(255,255,255,0.4);font-style:italic}
 @media(max-width:600px){
-  .sticky-bar{padding:0.8rem 1rem}
-  .sticky-timer-label{display:none}
+  .sticky-bar{padding:0.8rem 1rem;flex-direction:column;gap:0.6rem}
+  .sticky-bar-left{flex-direction:row;justify-content:space-between;align-items:center}
+  .sticky-timer-label{display:block!important;font-size:0.68rem}
+  .sticky-timer-label strong{font-size:0.72rem}
+  .sticky-price{display:none}
+  .sticky-bar .btn-cta{width:100%;text-align:center}
 }
+
+/* PROMO BOX EN PRECIO */
+.price-promo-box{background:var(--cta-light);border:1.5px solid #f0d9a8;border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1.5rem}
+.price-promo-top{font-size:0.92rem;color:var(--cta-hover);margin-bottom:1rem;line-height:1.5}
+.price-promo-top strong{font-weight:700}
+.promo-code{background:var(--cta);color:white;padding:2px 8px;border-radius:4px;font-weight:700;font-size:0.85rem;letter-spacing:0.5px}
+.price-promo-calc{display:flex;flex-direction:column;gap:0px;margin-bottom:0.8rem}
+.promo-line{display:flex;justify-content:space-between;font-size:0.83rem;color:var(--ink2);padding:5px 0;border-bottom:1px solid rgba(201,134,10,0.15)}
+.promo-line:last-child{border:none}
+.tachado{text-decoration:line-through;color:var(--ink3)}
+.promo-descuento{color:var(--cta-hover)}
+.promo-descuento span{font-weight:500}
+.promo-total{font-size:0.95rem;font-weight:700;color:var(--dark);padding-top:8px!important;border-top:2px solid rgba(201,134,10,0.3)!important;border-bottom:none!important}
+.promo-after{color:var(--ink3);font-size:0.78rem}
+.promo-subtotal{color:var(--ink2);font-weight:500;border-top:1px dashed rgba(201,134,10,0.3)!important;padding-top:8px!important}
+.promo-timer-inline{font-size:0.78rem;color:var(--cta-hover);margin-top:0.6rem;font-style:italic}
 </style>
 </head>
 <body>
@@ -255,7 +277,7 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
     </div>
     <div class="sticky-price"><strong>197€ + 27€/mes</strong>Setup único · sin permanencia</div>
   </div>
-  <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta" id="stickyBtn">Contratar ahora →</a>
+  <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta" id="stickyBtn">Contratar — 197€ · 1er mes gratis →</a>
 </div>
 
 <!-- HERO -->
@@ -265,7 +287,7 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
   <p class="hero-sub">Y haz que Google te envíe más clientes <strong>automáticamente.</strong><br>Sin pedir favores. Sin incomodar a nadie. Sin tecnología complicada.</p>
   <div class="hero-promise">"No estás pidiendo que dejen una reseña. Estás guiando, facilitando y estructurando la acción. Y eso lo cambia todo."</div>
   <div class="hero-ctas">
-    <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta">Quiero el sistema — 197€</a>
+    <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta">Quiero el sistema — 197€ · 1er mes gratis</a>
     <button class="btn-outline" onclick="document.getElementById('como').scrollIntoView({behavior:'smooth'})">Ver cómo funciona</button>
   </div>
   <div class="hero-stats">
@@ -379,7 +401,7 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
         <div class="mp"><div class="mp-dot">3</div><div class="mp-text"><strong>Se genera su reseña</strong> con sus propias palabras.</div></div>
         <div class="mp"><div class="mp-dot">4</div><div class="mp-text"><strong>La publica en Google</strong> con un solo toque.</div></div>
       </div>
-      <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta">Contratar el sistema — 197€</a>
+      <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta">Contratar — 197€ hoy · 1er mes gratis</a>
     </div>
     <div class="mockup-right">
       <div class="phone-shell">
@@ -467,10 +489,10 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
     </div>
   </div>
   <div class="rating-row">
-    <div class="rating-num">4,8</div>
+    <div class="rating-num">5,0</div>
     <div>
       <div class="rating-stars"><span class="rstar">★</span><span class="rstar">★</span><span class="rstar">★</span><span class="rstar">★</span><span class="rstar">★</span></div>
-      <div class="rating-desc">Puntuación media de los centros que usan el sistema.<br>Las reseñas guiadas generan textos más completos y valoraciones más altas en Google.</div>
+      <div class="rating-desc">La puntuación máxima, conseguida por los centros que usan el sistema.<br>Las reseñas guiadas generan textos más completos y valoraciones más altas en Google.</div>
     </div>
   </div>
 </section>
@@ -528,6 +550,18 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
         <div class="ph-sub">Obligatorio · Desde el segundo mes</div>
       </div>
     </div>
+    <div class="price-promo-box">
+      <div class="price-promo-top">🎁 <strong>Primer mes gratis</strong> — usa el código <span class="promo-code">BIENVENIDA</span></div>
+      <div class="price-promo-calc">
+        <div class="promo-line"><span>Setup inicial</span><span>197€</span></div>
+        <div class="promo-line"><span>1er mes mantenimiento</span><span>27€</span></div>
+        <div class="promo-line promo-subtotal"><span>Subtotal</span><span>224€</span></div>
+        <div class="promo-line promo-descuento"><span>🎁 Descuento código BIENVENIDA</span><span>−27€</span></div>
+        <div class="promo-line promo-total"><span>Total hoy</span><span>197€</span></div>
+        <div class="promo-line promo-after"><span>A partir del 2º mes</span><span>27€/mes</span></div>
+      </div>
+      <div class="promo-timer-inline">⏱ El código expira en <span id="priceTimerMin" style="font-weight:700"></span>:<span id="priceTimerSec" style="font-weight:700"></span> minutos</div>
+    </div>
     <div class="price-note"><strong>¿Por qué la mensualidad es obligatoria?</strong> Tu página necesita mantenimiento activo, actualizaciones y soporte continuo para seguir generando reseñas correctamente. Los 27€/mes lo cubren todo.</div>
     <ul class="price-list">
       <li>Página personalizada con el nombre y colores de tu centro</li>
@@ -538,8 +572,9 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
       <li>Soporte mensual, actualizaciones y mejoras continuas</li>
       <li>Sin permanencia — cancelas cuando quieras</li>
     </ul>
-    <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="price-btn" style="display:block;text-align:center;text-decoration:none">Contratar el sistema — 197€</a>
-    <div class="price-footer-note">197€ setup · 27€/mes · Sin permanencia · Entrega en 48h</div>
+    <div class="stripe-notice">Al pulsar verás el desglose completo en la pasarela de pago. El código <strong>BIENVENIDA</strong> ya está aplicado — el primer mes te sale gratis.</div>
+    <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="price-btn" style="display:block;text-align:center;text-decoration:none">Contratar — 197€ hoy (primer mes gratis)</a>
+    <div class="price-footer-note">197€ setup · 27€/mes desde el 2º mes · Sin permanencia · Entrega en 48h</div>
   </div>
 </section>
 
@@ -547,7 +582,7 @@ footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cre
 <section class="cierre">
   <h2>Tu competencia ya tiene<br><em>un sistema.</em></h2>
   <p class="cierre-sub">Cada semana sin sistema es una semana que pierdes clientas que podrían haber sido tuyas. Las reseñas no esperan. Empieza hoy.</p>
-  <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta" style="display:inline-block;text-decoration:none">Quiero el sistema para mi centro</a>
+  <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta" style="display:inline-block;text-decoration:none">Quiero el sistema — 197€ · 1er mes gratis</a>
   <div class="cierre-note">197€ setup · 27€/mes · Sin permanencia · Entrega en 48h</div>
 </section>
 
@@ -590,6 +625,10 @@ function updateTimers(){
     if(hs) hs.textContent = pad(s);
     if(sm) sm.textContent = pad(m);
     if(ss) ss.textContent = pad(s);
+    const ptm = document.getElementById('priceTimerMin');
+    const pts = document.getElementById('priceTimerSec');
+    if(ptm) ptm.textContent = pad(m);
+    if(pts) pts.textContent = pad(s);
   } else {
     // Expirado — mostrar mensaje y desactivar botones
     const wrap = document.getElementById('heroTimerWrap');
