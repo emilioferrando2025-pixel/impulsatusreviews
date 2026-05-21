@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ImpulsaTusReviews — Triplica tus reseñas de Google en 30 días</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#faf8f4;
+  --cream2:#f3efe8;
+  --dark:#1c1917;
+  --dark2:#292524;
+  --ink:#3c3530;
+  --ink2:#78716c;
+  --ink3:#a8a29e;
+  --rose:#c2705a;
+  --rose-light:#fdf0ec;
+  --rose-mid:#d4836b;
+  --border:#e7e0d8;
+  --white:#ffffff;
+  --cta:#c9860a;
+  --cta-hover:#a86e08;
+  --cta-light:#fef3e2;
+  --r:12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;border-bottom:1px solid var(--border);background:rgba(250,248,244,0.96);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;color:var(--dark)}
+.logo span{color:var(--rose)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:0.82rem;color:var(--ink2);text-decoration:none}
+.nav-cta{background:var(--cta)!important;color:var(--white)!important;padding:0.5rem 1.4rem;border-radius:50px;font-size:0.82rem;font-weight:600}
+
+/* HERO */
+.hero{padding:8rem 3rem 6rem;max-width:800px;margin:0 auto;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);margin-bottom:2rem}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:20px;height:1px;background:var(--rose)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:700;line-height:1.1;letter-spacing:-0.5px;color:var(--dark);margin-bottom:1.8rem}
+.hero h1 em{font-style:italic;color:var(--rose)}
+.hero-sub{font-size:1.1rem;color:var(--ink2);line-height:1.85;margin-bottom:1.5rem;font-weight:300;max-width:580px;margin-left:auto;margin-right:auto}
+.hero-sub strong{color:var(--ink);font-weight:500}
+.hero-promise{background:var(--cta-light);border-left:3px solid var(--cta);border-radius:0 var(--r) var(--r) 0;padding:1rem 1.4rem;margin:0 auto 2.8rem;max-width:540px;text-align:left;font-size:0.92rem;color:var(--cta-hover);font-style:italic;line-height:1.6}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-cta{background:var(--cta);color:var(--white);padding:1rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s,transform 0.15s;letter-spacing:0.2px}
+.btn-cta:hover{background:var(--cta-hover);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--ink);padding:1rem 2.2rem;border-radius:50px;font-size:1rem;border:1.5px solid var(--border);cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s}
+.btn-outline:hover{border-color:var(--ink)}
+.hero-stats{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--dark);line-height:1}
+.hstat-lbl{font-size:0.72rem;color:var(--ink3);margin-top:5px;line-height:1.4;max-width:110px;margin-left:auto;margin-right:auto}
+
+/* BAND */
+.band{background:var(--dark);padding:1rem 3rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.band-item{font-size:0.78rem;color:rgba(255,255,255,0.4);letter-spacing:0.3px}
+
+/* DOLOR */
+.dolor{padding:6rem 3rem;max-width:1060px;margin:0 auto}
+.section-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--rose)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3vw,2.8rem);font-weight:700;line-height:1.2;color:var(--dark);margin-bottom:1rem;letter-spacing:-0.3px}
+.section-title em{font-style:italic;color:var(--rose)}
+.section-intro{font-size:0.97rem;color:var(--ink2);max-width:580px;line-height:1.8;margin-bottom:3rem;font-weight:300}
+.dolor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.dolor-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:2rem;position:relative;overflow:hidden}
+.dolor-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rose)}
+.dolor-n{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;color:var(--cream2);line-height:1;margin-bottom:0.8rem}
+.dolor-card h3{font-size:0.95rem;font-weight:600;color:var(--dark);margin-bottom:0.7rem;line-height:1.4}
+.dolor-card p{font-size:0.83rem;color:var(--ink2);line-height:1.7;font-weight:300}
+.dolor-card .emocion{font-size:0.8rem;color:var(--rose);font-style:italic;margin-top:0.8rem;font-weight:400}
+
+/* TRANSFORMACION */
+.transformacion{background:var(--dark);padding:6rem 3rem}
+.transformacion-inner{max-width:1060px;margin:0 auto}
+.transformacion .section-eyebrow{color:rgba(255,255,255,0.35)}
+.transformacion .section-eyebrow::before{background:rgba(255,255,255,0.2)}
+.transformacion .section-title{color:var(--white)}
+.transformacion .section-title em{color:var(--rose-mid)}
+.transformacion .section-intro{color:rgba(255,255,255,0.45)}
+.trans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem}
+.trans-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:2rem}
+.trans-antes{font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.4rem}
+.trans-despues{font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--cta);margin-bottom:0.4rem}
+.trans-frase{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;line-height:1.5;color:rgba(255,255,255,0.9);margin-bottom:0.3rem}
+.trans-frase.old{color:rgba(255,255,255,0.3);text-decoration:line-through;font-size:0.9rem}
+.trans-arrow{color:var(--cta);font-size:1.2rem;margin:0.6rem 0;display:block}
+.trans-desc{font-size:0.8rem;color:rgba(255,255,255,0.4);line-height:1.6;font-weight:300;margin-top:0.6rem}
+
+/* MOCKUP */
+.mockup-section{background:var(--cream2);padding:6rem 3rem}
+.mockup-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.mockup-text .section-intro{margin-bottom:2rem}
+.mockup-puntos{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2.5rem}
+.mp{display:flex;align-items:flex-start;gap:12px}
+.mp-dot{width:26px;height:26px;background:var(--cta);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.65rem;font-weight:700;color:white;margin-top:1px}
+.mp-text{font-size:0.88rem;color:var(--ink2);font-weight:300;line-height:1.6}
+.mp-text strong{font-weight:600;color:var(--ink)}
+.mockup-quote{background:var(--white);border-left:3px solid var(--cta);border-radius:0 var(--r) var(--r) 0;padding:1rem 1.4rem;font-size:0.88rem;color:var(--ink2);font-style:italic;line-height:1.65;margin-bottom:2rem}
+.mockup-right{display:flex;justify-content:center}
+/* Phone shell */
+.phone-shell{width:280px;background:#f5f0e8;border-radius:36px;padding:10px;box-shadow:0 32px 80px rgba(60,53,48,0.15),0 0 0 1.5px rgba(60,53,48,0.08)}
+.phone-notch{background:#1c1917;border-radius:28px 28px 0 0;height:30px;display:flex;align-items:center;justify-content:center}
+.phone-notch-bar{width:60px;height:4px;background:rgba(255,255,255,0.15);border-radius:4px}
+.phone-screen{background:#f5f0e8;border-radius:0 0 24px 24px;overflow:hidden}
+/* Tarjeta interior fiel al diseño real */
+.review-card{background:var(--white);margin:10px;border-radius:18px;padding:1.2rem;box-shadow:0 2px 16px rgba(60,53,48,0.07)}
+.rc-eyebrow{font-size:0.55rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--cta);margin-bottom:0.7rem;display:flex;align-items:center;gap:5px}
+.rc-eyebrow::before{content:'✦';font-size:0.6rem}
+.rc-icon{font-size:1.4rem;margin-bottom:0.5rem;display:block}
+.rc-title{font-size:0.88rem;font-weight:700;color:var(--dark);margin-bottom:0.4rem;line-height:1.3}
+.rc-sub{font-size:0.7rem;color:var(--ink2);font-weight:300;line-height:1.5;margin-bottom:1rem}
+.rc-fases{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.1rem}
+.rc-fase{background:#f9f6f0;border-radius:8px;padding:0.55rem 0.75rem;display:flex;align-items:center;gap:8px;font-size:0.72rem;color:var(--ink);font-weight:400}
+.rc-fase-icon{font-size:0.85rem;flex-shrink:0}
+.rc-fase strong{font-weight:600}
+.rc-fase span{color:var(--ink2);font-weight:300}
+.rc-btn{width:100%;background:var(--cta);color:white;border:none;padding:0.7rem;border-radius:10px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;gap:6px}
+.phone-home{display:flex;justify-content:center;padding:8px 0 4px;background:#f5f0e8;border-radius:0 0 28px 28px}
+.phone-home-bar{width:80px;height:3px;background:rgba(60,53,48,0.2);border-radius:3px}
+
+/* PRECIO BAND */
+.precio-band{background:var(--cta);padding:2.2rem 3rem}
+.precio-band-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.pb-left h2{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:0.3rem}
+.pb-left p{font-size:0.83rem;color:rgba(255,255,255,0.72);font-weight:300}
+.pb-right{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap}
+.pb-amount{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--white);line-height:1}
+.pb-lbl{font-size:0.68rem;color:rgba(255,255,255,0.6);margin-top:3px}
+.pb-sep{font-size:1.5rem;color:rgba(255,255,255,0.35)}
+.btn-blanco{background:var(--white);color:var(--cta);padding:0.85rem 2rem;border-radius:50px;font-size:0.9rem;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap}
+
+/* COMO FUNCIONA */
+.como{padding:6rem 3rem;max-width:1060px;margin:0 auto}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:3rem}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;position:relative}
+.step-accent{position:absolute;top:0;left:0;right:0;height:3px;background:var(--cta);border-radius:var(--r) var(--r) 0 0}
+.step-n{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--cream2);line-height:1;margin-bottom:0.9rem}
+.step-card h3{font-size:0.92rem;font-weight:600;color:var(--dark);margin-bottom:0.5rem}
+.step-card p{font-size:0.82rem;color:var(--ink2);line-height:1.65;font-weight:300}
+.rating-row{background:var(--cta-light);border:1px solid #f0d9a8;border-radius:var(--r);padding:1.8rem 2rem;margin-top:2rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.rating-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--cta);line-height:1}
+.rating-stars{display:flex;gap:3px;margin-bottom:5px}
+.rstar{color:var(--cta);font-size:1rem}
+.rating-desc{font-size:0.85rem;color:var(--cta-hover);line-height:1.6;font-weight:400}
+
+/* INCLUYE */
+.incluye{background:var(--cream2);padding:6rem 3rem}
+.incluye-inner{max-width:1060px;margin:0 auto}
+.inc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem;margin-top:3rem}
+.inc-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;display:flex;gap:12px;align-items:flex-start}
+.inc-check{width:22px;height:22px;background:var(--cta);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.inc-check svg{width:10px;height:10px;stroke:white;fill:none;stroke-width:2.5}
+.inc-title{font-size:0.9rem;font-weight:600;color:var(--dark);margin-bottom:3px}
+.inc-desc{font-size:0.8rem;color:var(--ink2);font-weight:300;line-height:1.55}
+
+/* PRECIO */
+.precio{padding:6rem 3rem;max-width:660px;margin:0 auto;text-align:center}
+.price-card{background:var(--white);border:2px solid var(--cta);border-radius:20px;padding:2.8rem;text-align:left;margin-top:3rem;position:relative;overflow:hidden}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--cta)}
+.price-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.8rem;padding-bottom:1.8rem;border-bottom:1px solid var(--border)}
+.ph-lbl{font-size:0.68rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.ph-amount{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--dark);line-height:1;letter-spacing:-1px}
+.ph-amount.gold{color:var(--cta)}
+.ph-sub{font-size:0.77rem;color:var(--ink3);margin-top:5px}
+.price-note{background:var(--cta-light);border-left:3px solid var(--cta);border-radius:0 8px 8px 0;padding:0.9rem 1.1rem;margin-bottom:1.8rem;font-size:0.83rem;color:var(--cta-hover);line-height:1.6}
+.price-note strong{font-weight:600}
+.price-list{list-style:none;margin-bottom:2.2rem}
+.price-list li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:0.87rem;color:var(--ink2);font-weight:300}
+.price-list li:last-child{border:none}
+.price-list li::before{content:'✓';color:var(--cta);font-weight:700;flex-shrink:0;margin-top:1px}
+.price-btn{width:100%;background:var(--cta);color:var(--white);padding:1.1rem;border-radius:50px;font-size:1rem;font-weight:700;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s,transform 0.15s;letter-spacing:0.2px}
+.price-btn:hover{background:var(--cta-hover);transform:translateY(-1px)}
+.price-footer-note{text-align:center;font-size:0.74rem;color:var(--ink3);margin-top:1rem}
+
+/* CIERRE */
+.cierre{background:var(--dark2);padding:8rem 3rem;text-align:center}
+.cierre h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.4rem;letter-spacing:-0.5px}
+.cierre h2 em{font-style:italic;color:var(--rose-mid)}
+.cierre-sub{font-size:1rem;color:rgba(255,255,255,0.4);margin-bottom:2.8rem;font-weight:300;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cierre .btn-cta{font-size:1.05rem;padding:1.1rem 2.8rem}
+.cierre-note{font-size:0.73rem;color:rgba(255,255,255,0.2);margin-top:1.4rem}
+
+footer{padding:2rem 3rem;border-top:1px solid var(--border);background:var(--cream);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--dark)}
+.footer-logo span{color:var(--rose)}
+.footer-txt{font-size:0.74rem;color:var(--ink3)}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .hero{padding:5rem 1.5rem 4rem}
+  .dolor,.como,.incluye,.precio{padding:4rem 1.5rem}
+  .transformacion{padding:4rem 1.5rem}
+  .mockup-section{padding:4rem 1.5rem}
+  .mockup-inner{grid-template-columns:1fr;gap:3rem}
+  .precio-band{padding:1.5rem}
+  .precio-band-inner{flex-direction:column;text-align:center}
+  .cierre{padding:5rem 1.5rem}
+  footer{padding:1.5rem;flex-direction:column;text-align:center}
+}
+</style>
+
+<style>
+/* TIMER HERO */
+.hero-timer-wrap{background:var(--cta-light);border:1px solid #f0d9a8;border-radius:var(--r);padding:1rem 1.5rem;margin:0 auto 2.5rem;max-width:480px;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.timer-label{font-size:0.82rem;color:var(--cta-hover);font-weight:400;line-height:1.4;text-align:left}
+.timer-label strong{font-weight:700;display:block;font-size:0.88rem}
+.timer-digits{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.tdig{background:var(--cta);color:white;border-radius:6px;padding:6px 10px;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;line-height:1;min-width:38px;text-align:center}
+.tsep{color:var(--cta);font-size:1.2rem;font-weight:700;margin:0 1px}
+.timer-expired{font-size:0.82rem;color:var(--ink3);font-style:italic}
+
+/* STICKY BAR */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;z-index:200;transform:translateY(100%);transition:transform 0.35s ease;flex-wrap:wrap}
+.sticky-bar.visible{transform:translateY(0)}
+.sticky-bar-left{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.sticky-timer-label{font-size:0.75rem;color:rgba(255,255,255,0.5);line-height:1.3}
+.sticky-timer-label strong{color:rgba(255,255,255,0.85);display:block;font-size:0.8rem}
+.sticky-digits{display:flex;align-items:center;gap:3px}
+.sdig{background:var(--cta);color:white;border-radius:5px;padding:4px 8px;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;min-width:30px;text-align:center;line-height:1}
+.ssep{color:var(--cta);font-size:1rem;font-weight:700}
+.sticky-price{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.4}
+.sticky-price strong{color:white;font-size:0.95rem;display:block}
+.sticky-bar .btn-cta{font-size:0.88rem;padding:0.7rem 1.6rem;white-space:nowrap;flex-shrink:0}
+.sticky-expired{font-size:0.78rem;color:rgba(255,255,255,0.4);font-style:italic}
+@media(max-width:600px){
+  .sticky-bar{padding:0.8rem 1rem}
+  .sticky-timer-label{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ImpulsaTus<span>Reviews</span></div>
+  <div class="nav-links">
+    <a href="#como">Cómo funciona</a>
+    <a href="#incluye">Qué incluye</a>
+    <a href="#precio" class="nav-cta">Contratar — 197€</a>
+  </div>
+</nav>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-left">
+    <div>
+      <div class="sticky-timer-label"><strong>🎁 Primer mes gratis con código BIENVENIDA</strong>Expira en:</div>
+    </div>
+    <div class="sticky-digits">
+      <div class="sdig" id="sm">25</div><span class="ssep">:</span><div class="sdig" id="ss">00</div>
+    </div>
+    <div class="sticky-price"><strong>197€ + 27€/mes</strong>Setup único · sin permanencia</div>
+  </div>
+  <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta" id="stickyBtn">Contratar ahora →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Sistema de autoridad y confianza para negocios de belleza</div>
+  <h1>Triplica tus reseñas de Google<br>en menos de <em>30 días.</em></h1>
+  <p class="hero-sub">Y haz que Google te envíe más clientes <strong>automáticamente.</strong><br>Sin pedir favores. Sin incomodar a nadie. Sin tecnología complicada.</p>
+  <div class="hero-promise">"No estás pidiendo que dejen una reseña. Estás guiando, facilitando y estructurando la acción. Y eso lo cambia todo."</div>
+  <div class="hero-ctas">
+    <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta">Quiero el sistema — 197€</a>
+    <button class="btn-outline" onclick="document.getElementById('como').scrollIntoView({behavior:'smooth'})">Ver cómo funciona</button>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-num">×3</div>
+      <div class="hstat-lbl">más reseñas en 30 días</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">93%</div>
+      <div class="hstat-lbl">de clientes leen reseñas antes de elegir</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">2'</div>
+      <div class="hstat-lbl">para generar una reseña perfecta</div>
+    </div>
+  </div>
+
+  <!-- TIMER HERO -->
+  <div style="margin-top:2.5rem">
+    <div class="hero-timer-wrap" id="heroTimerWrap">
+      <div class="timer-label"><strong>🎁 Primer mes gratis — código BIENVENIDA</strong>Aplícalo en el carrito. Expira en:</div>
+      <div class="timer-digits">
+        <div class="tdig" id="hm">25</div><span class="tsep">:</span><div class="tdig" id="hs">00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="band-item">Peluquerías</div>
+  <div class="band-item">Centros de estética</div>
+  <div class="band-item">Spas</div>
+  <div class="band-item">Salones de uñas</div>
+  <div class="band-item">Barberías</div>
+  <div class="band-item">Centros de belleza</div>
+</div>
+
+<!-- EL DOLOR -->
+<section class="dolor">
+  <div class="section-eyebrow">El problema real</div>
+  <h2 class="section-title">Tu centro merece más.<br><em>Y tú lo sabes.</em></h2>
+  <p class="section-intro">Cada día entran clientas que salen encantadas. Pero Google no lo refleja. Y eso tiene un coste que nadie te ha enseñado a calcular.</p>
+  <div class="dolor-grid">
+    <div class="dolor-card">
+      <div class="dolor-n">01</div>
+      <h3>La pantalla en blanco las paraliza</h3>
+      <p>Quieren dejarte reseña. De verdad que quieren. Pero cuando abren Google y ven ese campo vacío… no saben qué escribir. Y cierran la app.</p>
+      <div class="emocion">No es falta de ganas. Es falta de guía.</div>
+    </div>
+    <div class="dolor-card">
+      <div class="dolor-n">02</div>
+      <h3>Pedir reseñas se siente incómodo para todos</h3>
+      <p>Tú no quieres parecer necesitado. Ellas no quieren comprometerse. Ese momento de tensión en la despedida destruye la conversión antes de que empiece.</p>
+      <div class="emocion">El sistema elimina esa incomodidad por completo.</div>
+    </div>
+    <div class="dolor-card">
+      <div class="dolor-n">03</div>
+      <h3>La competencia gana visibilidad que no merece</h3>
+      <p>Hay centros con menos calidad que el tuyo apareciendo primero en Google Maps. No porque sean mejores. Sino porque tienen un sistema y tú todavía no.</p>
+      <div class="emocion">Eso acaba hoy.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMACION ANTES / DESPUES -->
+<section class="transformacion">
+  <div class="transformacion-inner">
+    <div class="section-eyebrow">El cambio</div>
+    <h2 class="section-title">De esperar reseñas<br>a <em>generarlas</em> en sistema.</h2>
+    <p class="section-intro">Esto no es solo una herramienta. Es un cambio de posición. Pasas de depender de que tus clientas se acuerden, a tener un sistema que trabaja solo cada día.</p>
+    <div class="trans-grid">
+      <div class="trans-card">
+        <div class="trans-antes">Antes</div>
+        <div class="trans-frase old">"Espero que me deje una reseña…"</div>
+        <span class="trans-arrow">↓</span>
+        <div class="trans-despues">Después</div>
+        <div class="trans-frase">"Mi sistema genera reseñas solo, todos los días."</div>
+        <div class="trans-desc">Dejas de depender de la memoria y la iniciativa de tus clientas. El sistema actúa en el momento perfecto: cuando acaban de vivir la experiencia.</div>
+      </div>
+      <div class="trans-card">
+        <div class="trans-antes">Antes</div>
+        <div class="trans-frase old">"No sé cómo pedirlo sin parecer pesada…"</div>
+        <span class="trans-arrow">↓</span>
+        <div class="trans-despues">Después</div>
+        <div class="trans-frase">"Un QR elegante lo hace por mí. Sin tensión."</div>
+        <div class="trans-desc">Tu equipo no tiene que pedir nada. La pegatina en el espejo es discreta, profesional y efectiva. La clienta lo hace porque quiere, no porque se lo han pedido.</div>
+      </div>
+      <div class="trans-card">
+        <div class="trans-antes">Antes</div>
+        <div class="trans-frase old">"Tengo pocas reseñas y no aparezco en Google…"</div>
+        <span class="trans-arrow">↓</span>
+        <div class="trans-despues">Después</div>
+        <div class="trans-frase">"Google me posiciona. Los clientes me encuentran solos."</div>
+        <div class="trans-desc">Cada reseña nueva es una señal de confianza para Google. Más reseñas = más visibilidad local = más clientas nuevas que llegan solas a tu puerta.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOCKUP -->
+<section class="mockup-section">
+  <div class="mockup-inner">
+    <div class="mockup-text">
+      <div class="section-eyebrow">El sistema</div>
+      <h2 class="section-title">Esto es lo que ve<br><em>tu clienta.</em></h2>
+      <p class="section-intro">Una página personalizada con tu nombre y tus colores. Preguntas sencillas. Y una reseña generada en segundos lista para publicar.</p>
+      <div class="mockup-quote">El problema real es que la gente no sabe qué escribir. Tú lo solucionas. Y eso aumenta muchísimo la conversión.</div>
+      <div class="mockup-puntos">
+        <div class="mp"><div class="mp-dot">1</div><div class="mp-text"><strong>Escanea el QR</strong> en el espejo o el mostrador.</div></div>
+        <div class="mp"><div class="mp-dot">2</div><div class="mp-text"><strong>Responde preguntas sencillas</strong> sobre cómo se ha sentido.</div></div>
+        <div class="mp"><div class="mp-dot">3</div><div class="mp-text"><strong>Se genera su reseña</strong> con sus propias palabras.</div></div>
+        <div class="mp"><div class="mp-dot">4</div><div class="mp-text"><strong>La publica en Google</strong> con un solo toque.</div></div>
+      </div>
+      <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta">Contratar el sistema — 197€</a>
+    </div>
+    <div class="mockup-right">
+      <div class="phone-shell">
+        <div class="phone-notch"><div class="phone-notch-bar"></div></div>
+        <div class="phone-screen">
+          <div class="review-card">
+            <div class="rc-eyebrow">Lumière Beauty — Spa &amp; Estética</div>
+            <span class="rc-icon">💬</span>
+            <div class="rc-title">Cuéntanos cómo ha sido tu experiencia</div>
+            <div class="rc-sub">Con unas pocas preguntas generamos una reseña real y honesta que podrás publicar en Google. Solo te llevará 2 minutos.</div>
+            <div class="rc-fases">
+              <div class="rc-fase">
+                <span class="rc-fase-icon">🌱</span>
+                <div><strong>Antes</strong> <span>— cómo estabas cuando llegaste</span></div>
+              </div>
+              <div class="rc-fase">
+                <span class="rc-fase-icon">✨</span>
+                <div><strong>Durante</strong> <span>— cómo fue la experiencia</span></div>
+              </div>
+              <div class="rc-fase">
+                <span class="rc-fase-icon">🌟</span>
+                <div><strong>Ahora</strong> <span>— cómo te sientes al verte</span></div>
+              </div>
+            </div>
+            <button class="rc-btn">Empezar →</button>
+          </div>
+        </div>
+        <div class="phone-home"><div class="phone-home-bar"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO BAND -->
+<div class="precio-band">
+  <div class="precio-band-inner">
+    <div class="pb-left">
+      <h2>Precio claro desde el primer día</h2>
+      <p>Setup único + mantenimiento mensual. Sin sorpresas ni letra pequeña.</p>
+    </div>
+    <div class="pb-right">
+      <div>
+        <div class="pb-amount">197€</div>
+        <div class="pb-lbl">Setup inicial · pago único</div>
+      </div>
+      <div class="pb-sep">+</div>
+      <div>
+        <div class="pb-amount">27€</div>
+        <div class="pb-lbl">/ mes · mantenimiento</div>
+      </div>
+      <button class="btn-blanco" onclick="document.getElementById('precio').scrollIntoView()">Ver qué incluye</button>
+    </div>
+  </div>
+</div>
+
+<!-- CÓMO FUNCIONA -->
+<section class="como" id="como">
+  <div class="section-eyebrow">Paso a paso</div>
+  <h2 class="section-title">Simple para ti.<br><em>Fácil</em> para tu clienta.</h2>
+  <p class="section-intro">Sin tecnología complicada. Sin aplicaciones que instalar. Tú colocas el QR — el sistema hace el resto solo.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-accent"></div>
+      <div class="step-n">01</div>
+      <h3>La clienta escanea el QR</h3>
+      <p>Una pegatina con el QR de tu centro en el espejo o el mostrador. Lo escanea mientras espera o al terminar.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-accent"></div>
+      <div class="step-n">02</div>
+      <h3>El sistema la guía pregunta a pregunta</h3>
+      <p>Preguntas sencillas sobre su experiencia: el servicio, el trato, cómo se siente ahora. Sin pantalla en blanco. Sin bloqueo.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-accent"></div>
+      <div class="step-n">03</div>
+      <h3>Se genera la reseña perfecta</h3>
+      <p>Con sus respuestas se construye un texto real, completo y natural. Lo copia y lo publica en Google con un solo toque.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-accent"></div>
+      <div class="step-n">04</div>
+      <h3>Google te posiciona más arriba</h3>
+      <p>Cada reseña nueva es una señal de confianza para Google. Más posiciones, más clientas nuevas, más ingresos. Automático.</p>
+    </div>
+  </div>
+  <div class="rating-row">
+    <div class="rating-num">4,8</div>
+    <div>
+      <div class="rating-stars"><span class="rstar">★</span><span class="rstar">★</span><span class="rstar">★</span><span class="rstar">★</span><span class="rstar">★</span></div>
+      <div class="rating-desc">Puntuación media de los centros que usan el sistema.<br>Las reseñas guiadas generan textos más completos y valoraciones más altas en Google.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section class="incluye" id="incluye">
+  <div class="incluye-inner">
+    <div class="section-eyebrow">Qué incluye</div>
+    <h2 class="section-title">Todo listo para <em>empezar</em><br>en menos de 48 horas</h2>
+    <p class="section-intro">Al contratar el sistema recibes todo lo que necesitas para generar reseñas desde el primer día.</p>
+    <div class="inc-grid">
+      <div class="inc-item">
+        <div class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><div class="inc-title">Página personalizada de reseña</div><div class="inc-desc">Con el nombre y colores de tu centro, accesible desde cualquier móvil sin descargas.</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><div class="inc-title">Código QR personalizado</div><div class="inc-desc">Listo para imprimir y colocar en el espejo, el mostrador o donde prefieras.</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><div class="inc-title">Conexión con tu Google My Business</div><div class="inc-desc">Configuramos todo directamente con tu perfil de Google. Tú no tocas nada técnico.</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><div class="inc-title">Configuración completa incluida</div><div class="inc-desc">Nos encargamos de todo el proceso de setup. Entrega en menos de 48 horas.</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><div class="inc-title">Soporte mensual continuo</div><div class="inc-desc">Actualizaciones, mejoras y soporte prioritario incluidos en los 27€/mes.</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div><div class="inc-title">Sin permanencia mínima</div><div class="inc-desc">Cancelas cuando quieras. Sin contratos. Sin penalizaciones.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="precio" id="precio">
+  <div class="section-eyebrow" style="justify-content:center">Inversión</div>
+  <h2 class="section-title" style="text-align:center">Una inversión clara.<br><em>Sin sorpresas.</em></h2>
+  <p class="section-intro" style="margin:0 auto 0;text-align:center">Sin contratos. Sin permanencias. Cancelas cuando quieras.</p>
+  <div class="price-card">
+    <div class="price-header">
+      <div>
+        <div class="ph-lbl">Setup inicial</div>
+        <div class="ph-amount">197€</div>
+        <div class="ph-sub">Pago único · Preparación y personalización</div>
+      </div>
+      <div style="text-align:right">
+        <div class="ph-lbl">Mantenimiento</div>
+        <div class="ph-amount gold">27€<span style="font-size:1.1rem;font-weight:400;color:var(--ink3)">/mes</span></div>
+        <div class="ph-sub">Obligatorio · Desde el segundo mes</div>
+      </div>
+    </div>
+    <div class="price-note"><strong>¿Por qué la mensualidad es obligatoria?</strong> Tu página necesita mantenimiento activo, actualizaciones y soporte continuo para seguir generando reseñas correctamente. Los 27€/mes lo cubren todo.</div>
+    <ul class="price-list">
+      <li>Página personalizada con el nombre y colores de tu centro</li>
+      <li>Código QR personalizado listo para imprimir</li>
+      <li>Conexión directa con tu perfil de Google My Business</li>
+      <li>Configuración completa — tú no tocas nada técnico</li>
+      <li>Entrega en menos de 48 horas desde el encargo</li>
+      <li>Soporte mensual, actualizaciones y mejoras continuas</li>
+      <li>Sin permanencia — cancelas cuando quieras</li>
+    </ul>
+    <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="price-btn" style="display:block;text-align:center;text-decoration:none">Contratar el sistema — 197€</a>
+    <div class="price-footer-note">197€ setup · 27€/mes · Sin permanencia · Entrega en 48h</div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="cierre">
+  <h2>Tu competencia ya tiene<br><em>un sistema.</em></h2>
+  <p class="cierre-sub">Cada semana sin sistema es una semana que pierdes clientas que podrían haber sido tuyas. Las reseñas no esperan. Empieza hoy.</p>
+  <a href="https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA" target="_blank" class="btn-cta" style="display:inline-block;text-decoration:none">Quiero el sistema para mi centro</a>
+  <div class="cierre-note">197€ setup · 27€/mes · Sin permanencia · Entrega en 48h</div>
+</section>
+
+<footer>
+  <div class="footer-logo">ImpulsaTus<span>Reviews</span></div>
+  <div class="footer-txt">Sistema de autoridad y confianza para negocios de belleza</div>
+</footer>
+
+
+<script>
+const DURATION = 25 * 60; // 25 minutos en segundos
+const STRIPE_URL = "https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08?prefilled_promo_code=BIENVENIDA";
+
+// Recuperar tiempo guardado en sessionStorage para que no se reinicie al hacer scroll
+let stored = sessionStorage.getItem('itr_timer_end');
+let endTime;
+if (stored) {
+  endTime = parseInt(stored);
+} else {
+  endTime = Date.now() + DURATION * 1000;
+  sessionStorage.setItem('itr_timer_end', endTime);
+}
+
+function pad(n){ return String(n).padStart(2,'0'); }
+
+function updateTimers(){
+  const remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+  const m = Math.floor(remaining / 60);
+  const s = remaining % 60;
+
+  // Hero timer
+  const hm = document.getElementById('hm');
+  const hs = document.getElementById('hs');
+  // Sticky timer
+  const sm = document.getElementById('sm');
+  const ss = document.getElementById('ss');
+
+  if(remaining > 0){
+    if(hm) hm.textContent = pad(m);
+    if(hs) hs.textContent = pad(s);
+    if(sm) sm.textContent = pad(m);
+    if(ss) ss.textContent = pad(s);
+  } else {
+    // Expirado — mostrar mensaje y desactivar botones
+    const wrap = document.getElementById('heroTimerWrap');
+    if(wrap) wrap.innerHTML = '<span class="timer-expired">El código BIENVENIDA ha expirado. El primer mes se factura a 27€.</span>';
+
+    const sBar = document.getElementById('stickyBar');
+    const sBtn = document.getElementById('stickyBtn');
+    if(sBar){
+      const sd = sBar.querySelector('.sticky-digits');
+      if(sd) sd.innerHTML = '<span class="sticky-expired">Oferta expirada</span>';
+    }
+    if(sBtn){
+      sBtn.href = "https://buy.stripe.com/9B6eVc2Pk5h913103V2Ji08";
+      sBtn.textContent = "Contratar ahora →";
+    }
+  }
+}
+
+// Sticky bar — aparece tras pasar el hero
+const heroEl = document.querySelector('.hero');
+const stickyBar = document.getElementById('stickyBar');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(!e.isIntersecting){
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  });
+}, { threshold: 0.1 });
+if(heroEl) observer.observe(heroEl);
+
+updateTimers();
+setInterval(updateTimers, 1000);
+</script>
+</body>
+</html>
